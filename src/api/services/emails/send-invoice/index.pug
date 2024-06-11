@@ -1,0 +1,115 @@
+doctype html
+html
+  head
+    title Email Template
+    style.
+      body {
+        background-color: #f9f9f9;
+        font-family: 'Nunito Sans', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,700&display=swap");
+
+      table {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      td {
+        padding: 40px;
+      }
+
+      .logo {
+        display: block;
+        margin: 0 auto;
+        max-width: 200px;
+      }
+
+      .company-name {
+        font-size: 28px;
+        margin-top: 20px;
+        margin-bottom: 0;
+        color: #333333;
+        text-align: center;
+      }
+
+      .intro {
+        font-size: 15px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        color: #666666;
+        text-align: center;
+      }
+
+      .invitation {
+        font-size: 24px;
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #333333;
+        text-align: center
+      }
+
+      .message {
+        font-size: 16px;
+        margin-top: 0;
+        margin-bottom: 30px;
+        color: #666666;
+        text-align: center
+      }
+
+      .credentials {
+        font-size: 14px;
+        margin-top: 0;
+        color: #666666;
+        text-align: center
+      }
+
+      .signature {
+        font-size: 16px;
+        margin-top: 30px;
+      }
+
+      .footer {
+        font-size: 12px;
+        margin-top: 100px;
+        margin-bottom: 0;
+        color: #999999;
+        text-align: center;
+      }
+      .info{
+      text-align: center
+          
+      }
+
+      @media screen and (max-width: 600px) {
+        table {
+          width: 100% !important;
+        }
+      }
+
+  body
+    table
+      tr
+        td
+          img.logo(src="https://storage.googleapis.com/q1-bucket/1695120645314-qrlogo.png", alt="Logo", class="logo")
+
+          h1.company-name #{productName}
+
+          p.intro Track, manage, and organise  QR Codes effortlessly through a central portal, ensuring quick retrieval when needed. It is personalised QR code management at your fingertips.
+
+          h2.invitation Email Verification
+          p.info Welcome to Q1 Box, #{bodyText}
+          if purchaseLink
+           div(style="text-align: center;")
+             a(href=`${purchaseLink}`, style="color: #666666; text-decoration: underline;")  Your Essential Plan Purchase link
+          if OPT
+            h3.info #{OPT}
+     
+
+
+          p.footer If you have any questions or need assistance, please feel free to contact us at support@q1box.com.au.
