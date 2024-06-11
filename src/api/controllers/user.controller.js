@@ -262,7 +262,6 @@ exports.searchUsersByAdmin = async (req, res) => {
 exports.getUsersById = async (req, res) => {
   try {
     const { userId } = req.params;
-
     const findUser = await User.findById(userId);
 
     const clientId = process.env.AZURE_AD_APP_CLIENT_ID;
@@ -675,45 +674,10 @@ module.exports.azureCreateUser = async (req, res) => {
       return res
         .status(404)
         .json({ status: 404, message: "You are not a premium user" });
-    // Azure AD application (client) credentials
-    const clientId = process.env.AZURE_AD_APP_CLIENT_ID;
-    const clientSecret = process.env.AZURE_AD_APP_CLIENT_SECRET;
-    const tenantId = process.env.AZURE_AD_TENANT_ID;
-    const credential = new ClientSecretCredential(
-      tenantId,
-      clientId,
-      clientSecret
-    );
-
-    const graphClient = Client.initWithMiddleware({
-      authProvider: {
-        getAccessToken: async () => {
-          const token = await credential.getToken(
-            "https://graph.microsoft.com/.default"
-          );
-          return token.token;
-        },
-      },
-    });
-
-    const userResponse = await graphClient
-      .api("/users")
-      .filter(
-        `(otherMails/any(c:c eq '${email}') or mail eq '${email}') or userPrincipalName eq '${email}'`
-      )
-      .get();
-
-    // Define the invitation data
-    // const inviteData = {
-    //   invitedUserEmailAddress: email, // Email of the user to invite
-    //   inviteRedirectUrl: process.env.QR_APP, // URL where the invited user will be redirected after accepting the invitation
-    //   invitedUserDisplayName: fullName, // Display name for the invited user
-    //   sendInvitationMessage: true, // Whether to send an invitation message to the user
-    // };
 
     const user = await User.findOne({ email });
 
-    if (userResponse?.value?.length) {
+    if (user) {
       user.azureSSOEnables = azureSSOEnables;
       user.hasAzureAD = true;
       await user.save();
