@@ -14,7 +14,7 @@ module.exports.trailExpiryCronJob = async (email, name) => {
             <p>Hi ${fullname},</p>
             <p>Quick heads up – your 15 Days Free Trial with Q1box is ending soon. Starting [Date], your account will upgrade to premium, and you'll be billed as usual.</p>
             <p>If you're loving it, no action needed. Enjoy!</p>
-            <p>Questions? Email us at support@helloportal.com.au.</p>
+            <p>Questions? Email us at support@q1box.com.au.</p>
             <p>Cheers,</p>
             <p>Q1box Team</p>
             `;

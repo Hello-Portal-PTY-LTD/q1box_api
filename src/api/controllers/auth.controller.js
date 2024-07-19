@@ -56,7 +56,7 @@ exports.register = async (req, res, next) => {
     <p>Great news! You can now enjoy a 15 Days Free Trial of Q1box.</p>
     <p>Explore all the cool features without any charges.</p>
     <p>If you have any questions, we're here to help at</p>
-    <p>support@helloportal.com.au.</p>
+    <p>support@q1box.com.au.</p>
     <p>Cheers,</p>
     <p>Q1box Team</p>
     `;

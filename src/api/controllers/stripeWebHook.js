@@ -115,7 +115,7 @@ module.exports.stripeWebHook = async (request, response) => {
           <p>Remember, you can cancel anytime.</p>
           <p>If you need assistance, our customer support team is here to help:</p>
           <p>- Phone: 0731127930</p>
-          <p>- Email: support@helloportal.com.au</p>
+          <p>- Email: support@q1box.com.au</p>
           <p>Looking forward to growing with you!</p>
           <p>Best regards,</p>
           <p>Q1box Support Team</p>
