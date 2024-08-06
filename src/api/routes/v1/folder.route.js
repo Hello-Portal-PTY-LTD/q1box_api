@@ -17,7 +17,7 @@ router.route("/").post(authorize(), validate(createFolder), controller.create);
 router
   .route("/:folderId")
   .get(authorize(), validate(getFolder), controller.listFolderQRs)
-  .patch(authorize(), validate(updateFolder), controller.update)
+  .put(authorize(), validate(updateFolder), controller.update)
   .delete(authorize(), validate(deleteFolder), controller.delete);
 
 router
