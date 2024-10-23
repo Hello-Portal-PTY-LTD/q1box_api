@@ -63,7 +63,10 @@ exports.register = async (req, res, next) => {
     };
     const msg = {
       to: user?.email,
-      from: "support@q1box.com.au", // Replace with your email address
+      from: {
+        email: "support@q1box.com.au",
+        name: "Q1box",
+      },
       subject: "Try Q1box Free for 15 Days!",
       html: html(`${user.firstName} ${user.lastName}`),
     };
@@ -462,6 +465,7 @@ exports.googleAuth = async (req, res) => {
       client_secret,
       completeurl
     );
+
     const authorizeUrl = oauth2Client.generateAuthUrl({
       access_type: "offline",
       scope: SCOPES.join(" "),

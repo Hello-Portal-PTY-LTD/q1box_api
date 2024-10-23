@@ -295,7 +295,10 @@ module.exports.cancelSubscribedPlan = async (req, res) => {
     };
     const msg = {
       to: user?.email,
-      from: "support@q1box.com.au", // Replace with your email address
+      from: {
+        email: "support@q1box.com.au",
+        name: "Q1box",
+      },
       subject: "Your Q1box Subscription Cancellation Confirmation",
       html: html(`${user.firstName} ${user.lastName}`),
     };
