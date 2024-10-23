@@ -21,7 +21,10 @@ module.exports.trailExpiryCronJob = async (email, name) => {
       };
       const msg = {
         to: user.email,
-        from: "support@q1box.com.au", // Replace with your email address
+        from: {
+          email: "support@q1box.com.au",
+          name: "Q1box",
+        },
         subject: "Your 15 Days Free Trial Ends Soon!",
         html: html(`${user.firstName} ${user.lastName}`),
       };

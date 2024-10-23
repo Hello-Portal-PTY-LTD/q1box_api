@@ -19,7 +19,10 @@ exports.sendPasswordReset = async (passwordResetObject) => {
 
     const msg = {
       to: passwordResetObject.userEmail,
-      from: "support@q1box.com.au", // Replace with your email address
+      from: {
+        email: "support@q1box.com.au",
+        name: "Q1box",
+      },
       subject: "Password Reset Request",
       html,
     };
@@ -46,7 +49,10 @@ exports.SignUpVerification = async (token, Ema) => {
     });
     const msg = {
       to: Ema,
-      from: "support@q1box.com.au", // Replace with your email address
+      from: {
+        email: "support@q1box.com.au",
+        name: "Q1box",
+      },
       subject: "Please verify your Q1 Box account.",
       html,
     };
@@ -72,7 +78,10 @@ exports.sendPasswordChangeEmail = async (user) => {
 
     const msg = {
       to: user.email,
-      from: "support@q1box.com.au",
+      from: {
+        email: "support@q1box.com.au",
+        name: "Q1box",
+      },
       subject: "Password Changed",
       html,
     };
@@ -97,7 +106,10 @@ exports.inviteUser = async (user, password) => {
 
     const msg = {
       to: user.email,
-      from: "support@q1box.com.au",
+      from: {
+        email: "support@q1box.com.au",
+        name: "Q1box",
+      },
       subject: "Invitation To Q1 BOX",
       html,
     };
@@ -123,7 +135,10 @@ exports.updateEmailOPT = async (newEmail, OPT) => {
 
     const msg = {
       to: newEmail,
-      from: "support@q1box.com.au",
+      from: {
+        email: "support@q1box.com.au",
+        name: "Q1box",
+      },
       subject: "Verify your new email",
       html,
     };
@@ -147,7 +162,10 @@ exports.sendInvoice = async (sendEmail, sessionUrl) => {
 
     const msg = {
       to: sendEmail,
-      from: "support@q1box.com.au",
+      from: {
+        email: "support@q1box.com.au",
+        name: "Q1box",
+      },
       subject: "Custom Plan Purchase",
       html,
     };

@@ -227,9 +227,11 @@ exports.create = async (req, res, next) => {
 
 exports.get = async (req, res, next) => {
   try {
-    const qr =
-      (await QR.findOne({ shortId: req.params.qrId })) ||
-      (await QR.findOne({ _id: req.params.qrId }));
+    let qr = await QR.findOne({ shortId: req.params.qrId });
+
+    if (!qr && isValidObjectId(req.params.qrId)) {
+      qr = await QR.findOne({ _id: req.params.qrId });
+    }
 
     if (!qr) {
       return res.status(httpStatus.NOT_FOUND).json({
